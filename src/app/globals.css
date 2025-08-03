@@ -1,26 +1,123 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
+/* Fuente personalizada NeueMontreal */
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/NeueMontreal-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/NeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/NeueMontreal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/NeueMontreal-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #e8e8e8;
+  --foreground: #FFFFFF;
+  --duque-black: #000000;
+  --font-barlow-condensed: var(--font-barlow-condensed);
+  --font-manrope: 'Manrope', sans-serif;
+  --font-neue-montreal: 'NeueMontreal', sans-serif;
+  --duque-red: #EF400B;
+  --duque-gray: #232323;
+  --duque-white: #FFFFFF;
+  --duque-light-grey: #e8e8e8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-manrope);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-barlow-condensed: var(--font-barlow-condensed);
+  --font-manrope: var(--font-manrope);
+  --font-neue-montreal: var(--font-neue-montreal);
 }
 
 body {
-  background: var(--background);
+  background: var(--duque-light-grey);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Manrope', Arial, sans-serif;
+}
+
+.font-manrope {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+.font-barlow-condensed {
+  font-family: var(--font-barlow-condensed), sans-serif !important;
+}
+
+.font-neue-montreal {
+  font-family: 'NeueMontreal', sans-serif !important;
+}
+
+/* Estilos específicos para títulos con fuente Barlow Condensed */
+h1.font-barlow,
+h2.font-barlow,
+h3.font-barlow {
+  font-family: var(--font-barlow-condensed), sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  font-size: 150px !important;
+  text-transform: uppercase !important;
+}
+
+/* Estilos específicos para texto con fuente NeueMontreal */
+.font-neue-montreal-light {
+  font-family: 'NeueMontreal', sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.font-neue-montreal-regular {
+  font-family: 'NeueMontreal', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.font-neue-montreal-medium {
+  font-family: 'NeueMontreal', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.font-neue-montreal-bold {
+  font-family: 'NeueMontreal', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  h1.font-barlow,
+  h2.font-barlow {
+    font-size: 3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.font-barlow,
+  h2.font-barlow {
+    font-size: 2.5rem !important;
+  }
 }
