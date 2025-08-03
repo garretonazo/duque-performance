@@ -1,5 +1,17 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Reglas base de contención para prevenir overflow horizontal */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  width: 100%;
+}
 
 /* Fuente personalizada NeueMontreal */
 @font-face {
@@ -35,89 +47,306 @@
 }
 
 :root {
-  --background: #e8e8e8;
-  --foreground: #FFFFFF;
   --duque-black: #000000;
   --font-barlow-condensed: var(--font-barlow-condensed);
-  --font-manrope: 'Manrope', sans-serif;
   --font-neue-montreal: 'NeueMontreal', sans-serif;
-  --duque-red: #EF400B;
-  --duque-gray: #232323;
+  --duque-yellow: #DAFF02;
+  --duque-gray: #201E1F;
   --duque-white: #FFFFFF;
-  --duque-light-grey: #e8e8e8;
+  --duque-light-grey: #201E1F;
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
-  --font-mono: var(--font-geist-mono);
   --font-barlow-condensed: var(--font-barlow-condensed);
-  --font-manrope: var(--font-manrope);
   --font-neue-montreal: var(--font-neue-montreal);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 body {
-  background: var(--duque-light-grey);
-  color: var(--foreground);
-  font-family: 'Manrope', Arial, sans-serif;
+  background: var(--duque-gray);
+  font-family: 'NeueMontreal', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.font-manrope {
-  font-family: 'Manrope', sans-serif !important;
+/*
+html {
+  scroll-behavior: smooth;
+}
+*/
+
+.font-barlow {
+  /* font-family: var(--font-barlow-condensed), 'Barlow Condensed', Arial, sans-serif !important; */
+  font-weight: 800 ;
+  text-transform: uppercase;
+  font-size: 85px ;
 }
 
 .font-barlow-condensed {
-  font-family: var(--font-barlow-condensed), sans-serif !important;
+  font-family: var(--font-barlow-condensed), sans-serif;
 }
 
 .font-neue-montreal {
-  font-family: 'NeueMontreal', sans-serif !important;
+  font-family: 'NeueMontreal', sans-serif;
 }
 
 /* Estilos específicos para títulos con fuente Barlow Condensed */
 h1.font-barlow,
 h2.font-barlow,
 h3.font-barlow {
-  font-family: var(--font-barlow-condensed), sans-serif !important;
-  font-weight: 700 !important;
-  line-height: 1.1 !important;
-  font-size: 150px !important;
-  text-transform: uppercase !important;
+  line-height: 0.85 ;
+  font-size: 81px ;
 }
 
 /* Estilos específicos para texto con fuente NeueMontreal */
 .font-neue-montreal-light {
-  font-family: 'NeueMontreal', sans-serif !important;
-  font-weight: 300 !important;
+  font-family: 'NeueMontreal', sans-serif ;
+  font-weight: 300 ;
 }
 
 .font-neue-montreal-regular {
-  font-family: 'NeueMontreal', sans-serif !important;
-  font-weight: 400 !important;
+  font-family: 'NeueMontreal', sans-serif ;
+  font-weight: 400 ;
 }
 
 .font-neue-montreal-medium {
-  font-family: 'NeueMontreal', sans-serif !important;
-  font-weight: 500 !important;
+  font-family: 'NeueMontreal', sans-serif ;
+  font-weight: 500 ;
 }
 
 .font-neue-montreal-bold {
-  font-family: 'NeueMontreal', sans-serif !important;
-  font-weight: 700 !important;
+  font-family: 'NeueMontreal', sans-serif ;
+  font-weight: 700 ;
 }
 
 /* Responsive para móviles */
 @media (max-width: 768px) {
   h1.font-barlow,
   h2.font-barlow {
-    font-size: 3rem !important;
+    font-size: 3rem ;
   }
 }
 
 @media (max-width: 480px) {
   h1.font-barlow,
   h2.font-barlow {
+    font-size: 2.5rem ;
+  }
+}
+
+p,
+span,
+button,
+li,
+label,
+input,
+textarea {
+  font-family: 'NeueMontreal', sans-serif !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+}
+
+.link-navbar {
+  background: #0A0D10;
+  color: #dedede;
+  border: 1px solid #4e4e4e;
+  transition: all 0.3s;
+}
+.link-navbar:hover, .link-navbar:focus {
+  background: var(--duque-yellow);
+  color: #201E1F;
+  border-color: #fff;
+}
+.link-navbar.active {
+  color: var(--duque-yellow);
+  border-color: var(--duque-yellow);
+}
+
+/* Utilidades para prevenir overflow - solo aplicar cuando sea necesario */
+.no-overflow {
+  overflow-x: hidden;
+}
+
+.responsive-width {
+  width: 100%;
+  max-width: 100%;
+}
+
+.mobile-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Flexbox overflow prevention */
+.flex-container {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+/* Animaciones para Testimonials Infinite Scrolling */
+@keyframes scrollLeft {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scrollLeft linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scrollRight linear infinite;
+}
+
+.animate-pause {
+  animation-play-state: paused;
+}
+
+/* Responsive para testimonials */
+@media (max-width: 768px) {
+  .testimonials-section {
+    flex-direction: column;
+  }
+
+  .testimonials-section > div:first-child {
+    width: 100%;
+    height: 30vh;
+    padding: 2rem;
+  }
+
+  .testimonials-section > div:last-child {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .testimonials-section h2 {
     font-size: 2.5rem !important;
+  }
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

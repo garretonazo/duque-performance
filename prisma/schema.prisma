@@ -106,6 +106,23 @@ model Purchase {
   program Program @relation(fields: [programId], references: [id])
 }
 
+model Solicitud {
+  id                  String   @id @default(cuid())
+  nombre_completo     String
+  objetivo_principal  String
+  peso_actual         Float
+  unidad_peso         String
+  porcentaje_grasa    Float
+  altura              Float
+  unidad_altura       String
+  numero_celular      String
+  correo_gmail        String
+  estado              String   @default("pendiente")
+  fecha_creacion      DateTime @default(now())
+  fecha_actualizacion DateTime @updatedAt
+  notas_admin         String?
+}
+
 enum UserRole {
   USER
   ADMIN
