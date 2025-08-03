@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "prisma generate && next build"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -201,7 +202,6 @@
     "lenis": "^1.3.4",
     "levn": "^0.4.1",
     "lightningcss": "^1.30.1",
-    "lightningcss-win32-x64-msvc": "^1.30.1",
     "locate-path": "^6.0.0",
     "lodash.merge": "^4.6.2",
     "loose-envify": "^1.4.0",
