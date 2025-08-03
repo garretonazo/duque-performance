@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "prisma generate && next build"
+    "vercel-build": "prisma generate && next build",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
