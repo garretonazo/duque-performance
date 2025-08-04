@@ -22,9 +22,7 @@ function ContactCard() {
           </p>
         </div>
         <div className="footer_contact-illo-wrap ml-2 md:ml-4 lg:ml-8 flex-shrink-0 hidden md:flex">
-          <span className="bg-duque-gray rounded-full w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center">
-            <ArrowRight size={24} className="md:w-8 md:h-8 lg:w-10 lg:h-10" color="black" />
-          </span>
+          
         </div>
       </a>
     </div>
